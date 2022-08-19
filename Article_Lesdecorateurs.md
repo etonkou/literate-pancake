@@ -41,8 +41,7 @@ Une fonction peut être décorée en utilisant une syntaxe spéciale. Cette synt
 
 Ce code est placé avant la définition de la fonction que l’on souhaite décorer.
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.001.png)L’exemple suivant montre à quoi cela ressemble :
+L’exemple suivant montre à quoi cela ressemble :
 
 def decorator(f):
 
@@ -66,9 +65,6 @@ Analysons le code ci-dessus :
 
 - En premier lieu, nous découvrons la fonction décoratrice def decorator(f)  qui prend une fonction f en argument.
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.002.png)
-
 def decorator(f):
 
 `    `def new\_function():
@@ -88,9 +84,6 @@ Remarquez comment f est appelé à l'intérieur de new\_function pour obtenir la
 
 - Ensuite, on trouve la fonction qui sera décorée : initial\_function. Remarquez la syntaxe très particulière de @decorator au-dessus de l'en-tête de la fonction.
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.003.png)
-
 @decorator
 
 def initial\_function():
@@ -100,8 +93,7 @@ def initial\_function():
 initial\_function()
 
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.004.png)L’exécution de ce code donne le résultat suivant :
+L’exécution de ce code donne le résultat suivant :
 
 Extra Functionality
 
@@ -119,8 +111,7 @@ Maintenant que vous êtes familiarisé avec les décorateurs, voyons un scénari
 
 Supposons que nous ayons une classe ***Maison*** qui pour l’instant n’a qu’un seul attribut ***prix*** défini.
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.005.png)class Maison:
+class Maison:
 
 `	`def \_\_init\_\_(self, prix):
 
@@ -130,8 +121,7 @@ Cet attribut est public car son nom ne comporte pas de trait de soulignement.
 
 Puisque l'attribut est actuellement public, il est très probable que vous ou tout autre développeur accède et modifie l'attribut directement dans d'autres parties du programme en utilisant la notation par points, comme ceci :
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.006.png)# Accès a la valeur
+\# Accès a la valeur
 
 obj.prix
 
@@ -147,8 +137,7 @@ Tout va bien jusqu’à présent.  Maintenant, disons que l’on souhaite faire 
 
 A ce niveau, chaque ligne de code qui accède à la valeur de l'attribut ou la modifie devra être modifiée pour appeler le *getter* ou le *setter*, respectivement. Sinon, le code sera cassé
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.007.png)# Changer a partir de obj.prix
+\# Changer a partir de obj.prix
 
 obj.get\_prix()
 
@@ -169,8 +158,7 @@ Génial, n’est-ce pas ?
 
 Si l’on décide d’utiliser @property, notre classe ressemblera à l'exemple ci-dessous :
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.008.png)class Maison:
+class Maison:
 
 `	`def \_\_init\_\_(self, prix):
 
@@ -213,8 +201,8 @@ Il faut noter que le **prix** est maintenant "**protégé**" en d’autre "**pri
 
 L'attribut prix est maintenant considéré comme " **privé** " parce que nous avons ajouté un trait de soulignement à son nom dans self.\_prix :
 
+self.\_prix = prix
 
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.009.png)self.\_prix = prix
 
 
 En Python, par convention, lorsque vous ajoutez un trait de soulignement à un nom, vous indiquez aux autres développeurs qu'il ne doit pas être accédé ou modifié directement en dehors de la classe. Il ne doit être accessible que par l’intermédiaire de *getters* et *setters* s'ils sont disponibles.
@@ -223,8 +211,7 @@ En Python, par convention, lorsque vous ajoutez un trait de soulignement à un n
 
 Le code ci-dessous montre la méthode getter
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.010.png)@property
+@property
 
 def prix(self):
 
@@ -237,8 +224,7 @@ def prix(self):
 
 Voici un exemple de l'utilisation de la méthode *getter* :
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.011.png)>>> maMaison = Maison(6000000.0) # Instanciation
+\>>> maMaison = Maison(6000000.0) # Instanciation
 
 \>>> maMaison.prix            # Accès a la value
 
@@ -251,8 +237,7 @@ Remarquez comment nous accédons à l'attribut prix comme s'il s'agissait d'un a
 
 1) **Setter**
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.012.png)@prix.setter
+@prix.setter
 
 def prix(self, nouveau\_prix):
 
@@ -273,8 +258,7 @@ Voyons maintenant la syntaxe de la méthode *setter* :
 
 Voici un exemple de l'utilisation de la méthode setter avec @property
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.013.png)>>> maMaison = Maison(5000000.0)  # Création de l’instance
+\>>> maMaison = Maison(5000000.0)  # Création de l’instance
 
 \>>> maMaison.prix = 4500000.0   # Mise a jour de la valeur
 
@@ -286,16 +270,14 @@ Voici un exemple de l'utilisation de la méthode setter avec @property
 Remarquez que nous ne changeons pas la syntaxe, mais que nous utilisons maintenant un intermédiaire (***setter***) pour valider l'argument avant de l'assigner. La nouvelle valeur (4500000.0) est passée comme argument au *setter* :
 
 
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.014.png)
-
 \>>> maMaison.prix = 4500000.0   
+
 
 
 
 Si nous essayons d'attribuer une valeur non valide, nous voyons le message descriptif. Nous pouvons également vérifier que la valeur n'a pas été mise à jour :
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.015.png)>>> maMaison = Maison(5000000.0)
+\>>> maMaison = Maison(5000000.0)
 
 \>>> maMaison.prix = -50
 
@@ -309,8 +291,7 @@ Veuillez entrer un prix valide
 
 1) **Deleter**
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.016.png)@prix.deleter
+@prix.deleter
 
 def prix(self):
 
@@ -331,8 +312,7 @@ Note : remarquez que le nom de la propriété est "réutilisé" pour les trois 
 Le code suivant est un exemple d'utilisation de la méthode **deleter** avec **@property**
 
 
-
-![](Aspose.Words.077807c2-1738-4d09-865f-8a0919d2c0fb.017.png)# Creation de l’instance
+\# Creation de l’instance
 
 \>>> maMaison = Maison(5000000.0)
 
