@@ -1,3 +1,29 @@
+---
+title: |
+  "Le decorateur @property en Python"
+date: August, 2022
+lang: en-EN
+urlcolor: blue
+geometry: "left=2.5cm,right=2.5cm,top=3cm,bottom=3cm"
+documentclass: article
+fontfamily: Alegreya
+header-includes: |
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \rhead{Dakar Institute of Technology}
+    \lhead{Koularambaye Tonedeag}
+    \rfoot{Page \thepage}
+    \hypersetup{pdftex,
+            pdfauthor={Koularambaye Tonedeag},
+            pdftitle={Decorateur en Python},
+            pdfsubject={Decorateur en Python},
+            pdfkeywords={Python, Programming},
+            pdfproducer={Emacs, Pandoc, Latex, Markdown},
+            pdfcreator={Emacs, Pandoc, Latex, Markdown}}
+    
+---
+
 ﻿**Le décorateur @property en Python : Cas d’usage et avantages**
 
 
@@ -362,3 +388,5 @@ Vous pouvez choisir les méthodes à inclure en fonction du contexte dans lequel
 - En définissant des propriétés, vous pouvez modifier l'implémentation interne d'une classe sans affecter le programme. Vous pouvez donc ajouter des *getters*, *setters* et *deleters* qui agissent comme des intermédiaires "en coulisses" pour éviter d'accéder ou de modifier les données directement.
 
 J'espère vraiment que cet article vous a plu et qu'il vous a été utile.
+
+---
